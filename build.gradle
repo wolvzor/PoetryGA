@@ -8,6 +8,7 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
@@ -33,7 +34,11 @@ dependencies {
     // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
     // end::actuator[]
+    compile 'org.codehaus.groovy:groovy-all:2.3.3'
+    compile 'edu.stanford.nlp:stanford-parser:3.5.2'
     testCompile("junit:junit")
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    testCompile 'cglib:cglib-nodep:3.1'
 }
 
 task wrapper(type: Wrapper) {
