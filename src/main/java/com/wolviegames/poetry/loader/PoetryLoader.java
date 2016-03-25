@@ -35,8 +35,6 @@ public class PoetryLoader {
         Map<String, List<Tree>> poemTreeMap = new HashMap<String, List<Tree>>();
 
         for (String poemFileName : listOfPoems) {
-            System.out.println(poemFileName);
-
             File file = new File(classLoader.getResource(poemFileName).getFile());
             List<String> poemLines = new ArrayList<String>();
             try {
@@ -46,8 +44,6 @@ public class PoetryLoader {
                 // Do something better here soon, wolvie. geez.
                 ioe.printStackTrace();
             }
-
-            System.out.println(poemLines);
 
             List<Tree> treeList = new ArrayList<Tree>();
 
@@ -62,7 +58,6 @@ public class PoetryLoader {
                 newSentence = tokens.tokenize();
 
                 rawWords = Sentence.toCoreLabelList(newSentence);
-                System.out.println(rawWords);
                 parsedTree = lp.apply(rawWords);
                 treeList.add(parsedTree);
             }
